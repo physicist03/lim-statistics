@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1750815600 "c:/Users/ket16/Desktop/git-notes/lim-statistics/lecture-main.tex" "lecture-main.pdf" "lecture-main" 1750815603 0
-  "c:/Users/ket16/Desktop/git-notes/lim-statistics/lecture-main.tex" 1750815599 20392 7270eb1fba33aa9866ddc76b2312c4db ""
+["pdflatex"] 1750817141 "c:/Users/ket16/Desktop/git-notes/lim-statistics/lecture-main.tex" "lecture-main.pdf" "lecture-main" 1750817144 0
+  "c:/Users/ket16/Desktop/git-notes/lim-statistics/lecture-main.tex" 1750817138 20549 9ea1c5fac05e73cfc96f025a47f4d8e9 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1694845491 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1694846139 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1694845866 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
@@ -331,9 +331,9 @@
   "c:/texlive/2023/texmf.cnf" 1694848817 713 e69b156964470283e0530f5060668171 ""
   "image/fig1_1.png" 1750811341 44506 adc25ab834686d044af765146ec3608a ""
   "image/fig1_2.png" 1750815320 127003 0bc147f5f52f05e6e3bed87e514418e4 ""
-  "lecture-main.aux" 1750815602 780 4f693f5b19dab1ea576c6a81b42f1c2c "pdflatex"
-  "lecture-main.out" 1750815602 164 d7417d9af5745aaa5ce3e4e607dd150a "pdflatex"
-  "lecture-main.tex" 1750815599 20392 7270eb1fba33aa9866ddc76b2312c4db ""
+  "lecture-main.aux" 1750817143 780 4f693f5b19dab1ea576c6a81b42f1c2c "pdflatex"
+  "lecture-main.out" 1750817143 164 d7417d9af5745aaa5ce3e4e607dd150a "pdflatex"
+  "lecture-main.tex" 1750817138 20549 9ea1c5fac05e73cfc96f025a47f4d8e9 ""
   (generated)
   "lecture-main.aux"
   "lecture-main.log"

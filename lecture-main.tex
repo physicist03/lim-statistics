@@ -398,6 +398,9 @@ $\Omega$ 위에서 확률을 정리했는데, $E_2$로 범위를 줄여서 논�
     \includegraphics[width = 0.4\linewidth]{image/fig1_2.png}
 \end{figure}
 
+\noindent
+표본공간의 분할에 관한 자세한 예는 필기를 보고 채워 넣자.
+
 \begin{theorem}
     확률공간 $(\Omega, \mathcal{F}, P)$에서 $\{E_i\}_{i \in I}$는 표본공간 $\Omega$의 분할이고, $\forall i \in I$, $P(E_i) > 0$ 라고 하자.
     \begin{itemize}
@@ -407,7 +410,7 @@ $\Omega$ 위에서 확률을 정리했는데, $E_2$로 범위를 줄여서 논�
         \]
         \item \textcolor{red}{베이즈의 법칙}(Bayes' rule) : $F \in \mathcal{F}$이고 $P(F) > 0$이면,
         \[
-        P(E_j \mid F) = \frac{P(E_j) P(F \mid E_j)}{\sum_{i \in I} P(E_i) P(F \mid E_i)}
+        P(E_j \mid F) = \frac{P(E_j) P(F|E_j)}{P(F)}= \frac{P(E_j) P(F \mid E_j)}{\sum_{i \in I} P(E_i) P(F \mid E_i)}
         \]
     \end{itemize}
 \end{theorem}
@@ -416,6 +419,8 @@ $\Omega$ 위에서 확률을 정리했는데, $E_2$로 범위를 줄여서 논�
     두 개의 항아리가 있다. 첫째 항아리에는 노란 구슬 2개와 빨간 구슬 4개가 들어있고 둘째 항아리에는 노란 구슬 3개와 빨간 구슬 5개가 들어있다. 둘째 항아리에서 하나의 구슬을 꺼내어 첫째 항아리에 넣고 첫째 항아리에서 하나의 구슬을 꺼낼 때 노란 구슬이 나올 확률을 구하시오.
 \end{example}
 
+\noindent
+\textbf{Solution:}
 
 \noindent
 \textcolor{blue}{\textbf{[6/25, Lecture 2 to here]}}
