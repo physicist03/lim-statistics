@@ -249,6 +249,175 @@
 \end{proof}
 
 \noindent
-\textcolor{blue}{\textbf{[Lecture 1 to here]}}
+우리는 항상 확률을 $\sigma$-집합체 위에서 정의할 것이다. 확률을 취할 수 있는 사건들만 생각하자.
+
+\noindent
+\textcolor{blue}{\textbf{[6/24, Lecture 1 to here]}}
+
+\newpage
+
+\noindent
+앞서 배운 상호 배반 관계의 합집합에선 계산이 공리에 의해 매우 간단했다. 그러나, 일반적인 합집합에 대한 확률은 어떻게 될까? 이는 합의 법칙을 통해 설명할 수 있다.
+
+\begin{theorem}[합의 법칙]
+    ($\Omega, \mathcal{F}, P$)가 확률공간이면 임의의 $E_1, \cdots, E_n \in \mathcal{F}$에 대하여,
+    \begin{equation*}
+        P\left( \bigcup_{i=1}^{n} E_i \right) = \sum_{i=1}^{n} P(E_i) - \sum_{i<j} P(E_i \cap E_j) + \sum_{i<j<k} P(E_i \cap E_j \cap E_k) + \cdots + (-1)^{n+1} P(E_1 \cap E_2 \cap \cdots \cap E_n)
+    \end{equation*}
+
+    \begin{itemize}
+        \item $P(E_1 \cup E_2) = P(E_1) + P(E_2) - P(E_1 \cap E_2)$
+        \item $P(E_1 \cup E_2 \cup E_3) = P(E_1) + P(E_2) + P(E_3) - P(E_1 \cap E_2) - P(E_1 \cap E_3) - P(E_2 \cap E_3) + P(E_1 \cap E_2 \cap E_3)$
+    \end{itemize}
+\end{theorem}
+
+\begin{proof}
+    $n=2$인 경우에 대해 해보자. Claim : $P(E_1 \cup E_2) = P(E_1) + P(E_2) - P(E_1 \cap E_2)$
+
+    \noindent
+    공리를 사용하기 위하여 우리는 상호 배반인 관계로 분리하는 것이 유리하다. 두 집합을 $E_1, E_2 \cap E_1^c$로 나누자.
+    \begin{equation*}
+        E_1 \cup E_2 = E_1 \dot{\cup} (E_2 \cap E_1^c) \quad / \quad E_2 = (E_1 \cap E_2) \dot{\cup} (E_2 \cap E_1^c)
+    \end{equation*}
+    따라서, 확률로써 정리하고 양 변을 빼주면 다음과 같다.
+    \begin{equation*}
+        \begin{cases}
+            P(E_1 \cup E_2) = P(E_1) + P(E_2 \cap E_1^c)\\ P(E_2) = P(E_1 \cap E_2) + P(E_2 \cap E_1^c)
+        \end{cases} \quad \Rightarrow \quad P(E_1 \cup E_2) = P(E_1) + P(E_2) - P(E_1 \cap E_2)
+    \end{equation*}
+    따라서 $n=2$일 때의 합의 법칙이 증명되었다.
+\end{proof}
+
+\noindent
+확률의 합은 같은 counting measure이기 때문에, 유한집합의 개수와 연산의 양상이 상당히 비슷하다.
+
+\begin{example}
+    한 개의 좋은 주사위를 두 번 던지는 확률실험에서, 첫 번째 결과에서 점의 개수가 2를 넘지 않거나 두 번째 결과에서 점의 개수가 적어도 5가 될 확률을 구하시오.
+\end{example}
+
+\noindent
+\textbf{Solution:} $\Omega = \{ (a, b) | a, b = 1, 2, \cdots 6 \}$ / $\mathcal{F} = \mathcal{P} (\Omega) = \Omega$의 모든 부분집합의 모임 / $P(\{ (a,b) \} ) = \frac{1}{36}$, $\forall (a, b) \in \Omega$ 이때, 사건 $E_1, E_2$를 다음과 같이 정의할 수 있다.
+\begin{align*}
+    E_1 &= \text{첫 번째 결과에서 점의 개수가 2를 넘지 않을 사건}\\
+    E_2 &= \text{두 번째 결과에서 점의 개수가 적어도 5가 될 사건}
+\end{align*}
+
+\begin{definition}[조건부 확률(conditional probability)]
+    확률공간 ($\Omega, \mathcal{P}, P$)에서, $E_1, E_2 \in \mathcal{F}$이고, $P(E_2) > 0$일 때 사건 $E_2$가 일어났다는 조건에서 사건 $E_1$이 일어날 확률을 \textcolor{red}{사건 $E_2$에 대한 사건 $E_1$의 조건부 확률}이라 하며, $P(E_1 | E_2)$로 나타내고 다음과 같이 정의한다.
+    \begin{equation*}
+        P(E_1 | E_2)_ = \frac{P(E_1 \cap E_2)}{P(E_2)} = \frac{P(E_1 E_2)}{P(E_2)}
+    \end{equation*}
+\end{definition}
+
+\noindent
+다음 그림을 한 번 떠올려보자.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.3\linewidth]{image/fig1_1.png}
+\end{figure}
+
+\noindent
+교집합을 의미하는 것 자체는 똑같으나, \underline{전체 사건(분모)를 어떻게 잡아주냐}의 차이이다! 조건부 확률에 정의에서 확률의 곱의 법칙이 나온다. 조건부확률은 Local한 개념이고, $P(E_1 | E_2)$와 $P(E_2 | E_1)$은 서로 다르다.
+
+\noindent
+$\Omega$ 위에서 확률을 정리했는데, $E_2$로 범위를 줄여서 논해도 확률함수인가? 이를 보증해주는 것이 조건부 확률 정의의 타당성이다. 이는 vector space와 subspace 간의 관계와 구조가 일치한다. 확률함수가 만족하는 성질들을 subspace에 대해서도 모두 만족시켜줄 수 있다.
+
+\newpage
+
+\begin{theorem}[조건부 확률 정의의 타당성]
+    $(\Omega, \mathcal{F}, P)$가 확률 공간이면, $P(B) > 0$인 임의의 사건 $B \in \mathcal{F}$에 대하여, 집합함수 $P(\ \cdot \mid B) : \mathcal{F} \to \mathbb{R}$는 확률함수이다. 즉, $(\Omega, \mathcal{F}, P|_{B})$는 확률 공간이다.
+\end{theorem}
+
+\begin{proof}
+    (A1) : $\forall E \in \mathcal{F}$, $P(E|B) = P(E \cap B) / P(B) \geq 0 $
+    \\ \noindent (A2) : 임의의 상호 배반인 $\{E_n\}_{n=1}^\infty \subset \mathcal{F}$에 대하여 (여기 뒤에는 필기 보고 채워넣어라)
+    \\ \noindent (A3) : 
+    \begin{equation*}
+        P(\Omega | B)  = \frac{P(\Omega \cap B)}{P(B)} = \frac{P(B)}{P(B)} = 1
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}[곱의 법칙]
+    $(\Omega, \mathcal{F}, P)$가 확률공간이고, $E_1, E_2, \cdots, E_n \in \mathcal{F}$, $P(E_1 \cap E_2 \cap \cdots \cap E_n) > 0$이면,\footnote{조건부 확률의 곱이기 때문에 양수 조건 빼먹으면 안된다!!, 얘가 양수면 나머지 확률들도 양수임이 보장된다.}
+    \begin{equation*}
+        P(E_1 \cap E_2 \cap \cdots \cap E_n) = P(E_1) P(E_2 \mid E_1) \cdots P(E_n \mid E_1 \cap E_2 \cap \cdots \cap E_{n-1})
+    \end{equation*}
+    특히, $n=3$이면,
+    \begin{equation*}
+        P(E_1 \cap E_2 \cap E_3) = P(E_1) P(E_2 \mid E_1) P(E_3 \mid E_1 \cap E_2)
+    \end{equation*}
+\end{theorem} 
+
+\begin{proof}
+    Use Mathematical Induction.\\
+    \noindent
+    (i) $n=2$, $P(E_1 \cap E_2) = P(E_1) \cdot P(E_2 | E_1)$ (정의)\\
+    \noindent
+    (ii) $n=k$일 때, 성립한다고 가정하면,
+    \begin{align*}
+        P(E_1 \cap E_2 \cap \cdots \cap E_n \cap E_{n+1}) &=  P(E_1 \cap \cdots \cap E_k) \cdot P(E_{k+1} \mid E_1 \cap \cdots \cap E_k)\\
+        &= P(E_1) P(E_2 \mid E_1) \cdots P(E_k \mid E_1 \cap \cdots \cap E_{k-1}) \cdot P(E_{k+1} \mid E_1 \cap \cdots \cap E_k)
+    \end{align*}
+    따라서, 수학적 귀납법에 따라, 임의의 자연수 $n$에 대해 곱의 법칙이 성립한다.
+\end{proof}
+
+\begin{example}
+    주머니 안에 3개의 검은 공과 7개의 흰 공이 있는데, 1개씩 2번 뽑아서 두 개 모두 검은 공이 나올 확률은 얼마인가? (Naive하게 $\frac{3}{10} \times \frac{2}{9}$가 될 것이다.)
+\end{example}
+
+\noindent
+\textbf{Solution:} $B_i$는 $i$번째에 검은 공을 뽑는 사건이다. 구하는 것은 $P(B_1 \cap B_2)$이 된다.
+\begin{equation*}
+    P(B_1 \cap B_2) = P(B_1) \cdot P(B_2 | B_1)
+\end{equation*}
+양 변에 $P(B_1)$을 나눠보면 명확히 조건부 확률의 정의가 된다.
+
+
+\begin{example}
+    상자 안에 30개의 전구가 있는데 그 중 5개는 불량품이다. 3개를 비복원추출한다고 할 때, 3개 모두 불량품일 확률을 구하시오. (Naive하게 $\frac{5}{30} \times \frac{4}{29} \times \frac{3}{28}$이 될 것이다.)
+\end{example}
+
+\noindent
+\textbf{Solution:} $B_i$는 $i$번째에 불량품을 뽑는 사건이다. 구하는 것은 $P(B_1 \cap B_2 \cap B_3)$이 된다.
+\begin{equation*}
+    P(B_1 \cap B_2 \cap B_3) = P(B_1) \cdot P(B_2 | B_1) \cdot P(B_3 | B_1 \cap B_2)
+\end{equation*}
+
+\newpage
+
+\begin{definition}[표본공간의 분할(partition)]
+    확률공간 $(\Omega, \mathcal{F}, P)$에서 $\mathcal{F}$의 유한 또는 무한가산 사건열 $\{E_i\}_{i \in I}$가 다음 조건을 만족할 때, $\{E_i\}_{i \in I}$를 \textcolor{red}{표본공간 $\Omega$의 분할}이라고 한다.
+    \begin{enumerate}
+        \item[(i)] 임의의 $i, j \in I$에 대하여 $i \ne j$이면 $E_i \cap E_j = \emptyset$이다.
+        \item[(ii)] \(\displaystyle \bigcup_{i \in I} E_i = \Omega\)
+    \end{enumerate}
+\end{definition}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.4\linewidth]{image/fig1_2.png}
+\end{figure}
+
+\begin{theorem}
+    확률공간 $(\Omega, \mathcal{F}, P)$에서 $\{E_i\}_{i \in I}$는 표본공간 $\Omega$의 분할이고, $\forall i \in I$, $P(E_i) > 0$ 라고 하자.
+    \begin{itemize}
+        \item \textcolor{red}{전확률의 법칙}(rule of total probability) :
+        \[
+        \forall F \in \mathcal{F}, \quad P(F) = \sum_{i \in I} P(E_i) P(F \mid E_i)
+        \]
+        \item \textcolor{red}{베이즈의 법칙}(Bayes' rule) : $F \in \mathcal{F}$이고 $P(F) > 0$이면,
+        \[
+        P(E_j \mid F) = \frac{P(E_j) P(F \mid E_j)}{\sum_{i \in I} P(E_i) P(F \mid E_i)}
+        \]
+    \end{itemize}
+\end{theorem}
+
+\begin{example}
+    두 개의 항아리가 있다. 첫째 항아리에는 노란 구슬 2개와 빨간 구슬 4개가 들어있고 둘째 항아리에는 노란 구슬 3개와 빨간 구슬 5개가 들어있다. 둘째 항아리에서 하나의 구슬을 꺼내어 첫째 항아리에 넣고 첫째 항아리에서 하나의 구슬을 꺼낼 때 노란 구슬이 나올 확률을 구하시오.
+\end{example}
+
+
+\noindent
+\textcolor{blue}{\textbf{[6/25, Lecture 2 to here]}}
 
 \end{document}
